@@ -1,14 +1,23 @@
-export default function Accordion(props: {title: string}) {
+type AccordionType = {
+    title: string,
+    isCollapsed: boolean,
+}
+
+type AccordionTitleType = {
+    title: string,
+}
+
+export default function Accordion({title, isCollapsed}: AccordionType) {
     return (
         <>
-            <AccordionTitle title={props.title} />
-            <AccordionBody />
+            <AccordionTitle title={title} />
+            {!isCollapsed ? (<AccordionBody />) : ''}
         </>
     );
 }
 
-function AccordionTitle(props: {title: string}) {
-    return <h3>{props.title}</h3>
+function AccordionTitle({title}: AccordionTitleType) {
+    return <h3>{title}</h3>
 }
 
 function AccordionBody() {
