@@ -7,9 +7,18 @@ function App() {
     <div>
       APP component
       <Rating />
-      <Accordion title={'Menu'} />
-      <Accordion title={'Contacts'} />
-      <Accordion title={'News'} />
+      <Accordion
+        title={'Menu'}
+        isCollapsed={true}
+      />
+      <Accordion
+        title={'Contacts'}
+        isCollapsed={false}
+      />
+      <Accordion
+        title={'News'}
+        isCollapsed={true}
+      />
     </div>
   );
 }
@@ -17,17 +26,21 @@ function App() {
 function Rating() {
   return (
     <div>
-      <Star selected={true} />
-      <Star selected={true} />
-      <Star selected={true} />
-      <Star selected={true} />
-      <Star selected={false} />
+      <Star isSelected={true} />
+      <Star isSelected={true} />
+      <Star isSelected={true} />
+      <Star isSelected={true} />
+      <Star isSelected={false} />
     </div>
   );
 }
 
-function Star(props: any) {
-  if(props.selected === true) {
+type StarType = {
+  isSelected: boolean,
+}
+
+function Star({isSelected}: StarType) {
+  if(isSelected === true) {
     return <div><b>Star</b></div>;
   }
   return <div>star</div>;
