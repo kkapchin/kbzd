@@ -1,12 +1,15 @@
 import React from 'react';
 import './App.css';
+import Accordion from './components/Accordion';
 
 function App() {
   return (
     <div>
       APP component
       <Rating />
-      <Accordion />
+      <Accordion title={'Menu'} />
+      <Accordion title={'Contacts'} />
+      <Accordion title={'News'} />
     </div>
   );
 }
@@ -14,41 +17,20 @@ function App() {
 function Rating() {
   return (
     <div>
-      <Star />
-      <Star />
-      <Star />
-      <Star />
-      <Star />
+      <Star selected={true} />
+      <Star selected={true} />
+      <Star selected={true} />
+      <Star selected={true} />
+      <Star selected={false} />
     </div>
   );
 }
 
-function Star() {
-  return (
-    <div>star</div>
-  );
+function Star(props: any) {
+  if(props.selected === true) {
+    return <div><b>Star</b></div>;
+  }
+  return <div>star</div>;
 }
 
-function Accordion() {
-  return (
-    <>
-      <AccordionTitle />
-      <AccordionBody />
-    </>
-  );
-}
-
-function AccordionTitle() {
-  return <h3>Menu</h3>
-}
-
-function AccordionBody() {
-  return (
-    <ul>
-      <li>1</li>
-      <li>2</li>
-      <li>3</li>
-    </ul>
-  );
-}
 export default App;
