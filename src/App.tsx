@@ -1,49 +1,31 @@
 import React from 'react';
 import './App.css';
-import Accordion from './components/Accordion';
+import Accordion from './components/Accordion/Accordion';
+import Rating from "./components/Rating/Rating";
 
-function App() {
-  return (
-    <div>
-      APP component
-      <Rating />
-      <Accordion
-        title={'Menu'}
-        isCollapsed={true}
-      />
-      <Accordion
-        title={'Contacts'}
-        isCollapsed={false}
-      />
-      <Accordion
-        title={'News'}
-        isCollapsed={true}
-      />
-    </div>
-  );
+export default function App() {
+    return (
+        <div>
+            APP component
+            <Accordion
+                title={'Menu'}
+                isCollapsed={true}
+            />
+            <Accordion
+                title={'Contacts'}
+                isCollapsed={false}
+            />
+            <Accordion
+                title={'News'}
+                isCollapsed={true}
+            />
+            <Rating value={0} />
+            <Rating value={1} />
+            <Rating value={2} />
+            <Rating value={3} />
+            <Rating value={4} />
+            <Rating value={5} />
+        </div>
+    );
 }
 
-function Rating() {
-  return (
-    <div>
-      <Star isSelected={true} />
-      <Star isSelected={true} />
-      <Star isSelected={true} />
-      <Star isSelected={true} />
-      <Star isSelected={false} />
-    </div>
-  );
-}
-
-type StarType = {
-  isSelected: boolean,
-}
-
-function Star({isSelected}: StarType) {
-  if(isSelected === true) {
-    return <div><b>Star</b></div>;
-  }
-  return <div>star</div>;
-}
-
-export default App;
