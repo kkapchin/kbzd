@@ -4,11 +4,6 @@ import Rating from "./components/Rating/Rating";
 import ToggleSwitch from "./components/ToggleSwitch/ToggleSwitch";
 import {useState} from "react";
 
-// export enum Toggle {
-//         ON = 'ON',
-//         OFF = 'OFF',
-// }
-
 export default function App() {
         const [isOn, setIsOn] = useState<boolean>(true);
     return (
