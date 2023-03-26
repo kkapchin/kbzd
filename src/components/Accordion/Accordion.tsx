@@ -1,17 +1,17 @@
 type AccordionType = {
-    title: string,
-    isCollapsed: boolean,
+    title: string
+    isCollapsed: boolean
 }
 
 type AccordionTitleType = {
-    title: string,
+    title: string
 }
 
 export default function Accordion({title, isCollapsed}: AccordionType) {
     return (
         <>
             <AccordionTitle title={title} />
-            {!isCollapsed ? (<AccordionBody />) : ''}
+            {isCollapsed && <AccordionBody />}
         </>
     );
 }
