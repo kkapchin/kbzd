@@ -1,0 +1,33 @@
+.container {
+    display: flex;
+}
+
+.button {
+    padding: 5px 15px;
+    width: 150px;
+    height: 75px;
+    background: lightblue;
+    border: none;
+    outline: none;
+
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    cursor: pointer;
+}
+
+.active_on {
+    background: darkseagreen;
+}
+
+.active_off {
+    background: crimson;
+}
+
+.indicator {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    margin-left: 20px;
+}
