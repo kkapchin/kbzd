@@ -1,18 +1,21 @@
-import React from "react";
-import Star from "./Star";
+import React, {useState} from "react";
+import Star from "./Star/Star";
 
-type RatingPropsType = {
-    value: 0 | 1 | 2 | 3 | 4 | 5
-}
+export default function Rating() {
 
-export default function Rating({ value }: RatingPropsType) {
+    const [rating, setRating] = useState(0);
+
+    const stars = new Array(5)
+        .fill('')
+        .map((item, index) => <Star
+            value={index + 1}
+            isSelected={rating > index}
+            setRating={setRating}
+        />);
+
     return (
-        <div style={{display: 'flex'}}>
-            <Star isSelected={ value > 0 } />
-            <Star isSelected={ value > 1 } />
-            <Star isSelected={ value > 2 } />
-            <Star isSelected={ value > 3 } />
-            <Star isSelected={ value > 4 } />
+        <div>
+            {stars}
         </div>
     );
 }

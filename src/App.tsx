@@ -7,6 +7,7 @@ export default function App() {
     return (
         <div>
             APP component
+            <Rating />
             <Accordion
                 title={'Menu'}
             />
@@ -18,12 +19,7 @@ export default function App() {
             />
 
             {/*<ToggleSwitch isOn={isOn} setIsOn={setIsOn}/>*/}
-            <Rating value={0}/>
-            <Rating value={1}/>
-            <Rating value={2}/>
-            <Rating value={3}/>
-            <Rating value={4}/>
-            <Rating value={5}/>
+
         </div>
     );
 }
