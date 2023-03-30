@@ -1,0 +1,11 @@
+.title {
+    display: inline-block;
+}
+
+.toggle {
+    border: none;
+    background-color: transparent;
+    display: inline-block;
+    cursor: pointer;
+    margin-left: 5px;
+}

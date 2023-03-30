@@ -1,32 +1,22 @@
-type AccordionType = {
+import AccordionTitle from "./AccordionTitle/AccordionTitle";
+import AccordionBody from "./AccordionBody/AccordionBody";
+import {useState} from "react";
+
+type PropsType = {
     title: string
-    isCollapsed: boolean
 }
 
-type AccordionTitleType = {
-    title: string
-}
+export default function Accordion({title}: PropsType) {
 
-export default function Accordion({title, isCollapsed}: AccordionType) {
+    const [isCollapsed, setIsCollapsed] = useState(true);
+
     return (
         <>
-            <AccordionTitle title={title} />
-            {isCollapsed && <AccordionBody />}
+            <AccordionTitle title={title}
+                            isCollapsed={isCollapsed}
+                            setIsCollapsed={setIsCollapsed}
+            />
+            {!isCollapsed && <AccordionBody/>}
         </>
     );
 }
-
-function AccordionTitle({title}: AccordionTitleType) {
-    return <h3>{title}</h3>
-}
-
-function AccordionBody() {
-    return (
-        <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-        </ul>
-    );
-}
-
