@@ -4,13 +4,13 @@ import s from "./Star.module.css";
 type StarType = {
     value: number,
     isSelected: boolean
-    setRating: (rating: number) => void
+    onChange: (rating: number) => void
 }
 
-export default function Star({isSelected, value, setRating}: StarType) {
+export default function Star({isSelected, value, onChange}: StarType) {
 
     const onClickHandler = () => {
-        setRating(value);
+        onChange(value);
     }
 
     return (

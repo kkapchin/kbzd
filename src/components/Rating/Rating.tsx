@@ -1,17 +1,30 @@
-import React, {useState} from "react";
+import React from "react";
 import Star from "./Star/Star";
 
-export default function Rating() {
+const MAX_RATING_VALUE = 5;
 
-    const [rating, setRating] = useState(0);
+type PropsType = {
+    rating: number
+    onChange: (value: number) => void
+    storybookCallback?: (value: number) => void
+}
 
-    const stars = new Array(5)
-        .fill('')
-        .map((item, index) => <Star
-            value={index + 1}
-            isSelected={rating > index}
-            setRating={setRating}
-        />);
+export default function Rating({ rating, onChange, ...restProps }: PropsType) {
+    const ratingValues = [...new Array(MAX_RATING_VALUE).keys()].map((el) => el + 1);
+
+    const onChangeHandler = (value: number) => {
+        onChange(value);
+        if(restProps.storybookCallback) {
+            restProps.storybookCallback(value);
+        }
+    }
+
+    const stars = ratingValues.map((value) => <Star
+        key={value}
+        value={value}
+        isSelected={rating >= value}
+        onChange={onChangeHandler}
+    />);
 
     return (
         <div>
