@@ -1,4 +1,7 @@
 import Rating from './Rating';
+import {useState} from "react";
+import {DEFAULT_RATING} from "../../const";
+import {action} from "@storybook/addon-actions"
 
 export default {
     title: 'Rating',
@@ -6,5 +9,18 @@ export default {
 };
 
 export const RatingStars = () => {
-    return <Rating />
+    const [rating, setRating] = useState(DEFAULT_RATING)
+
+    const callback = action('Rating changed');
+
+
+    const onChangeRatingHandler = (value: number) => {
+        setRating(value);
+    }
+
+    return <Rating
+        rating={rating}
+        onChange={onChangeRatingHandler}
+        storybookCallback={callback}
+    />
 };
